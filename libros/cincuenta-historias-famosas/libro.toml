@@ -1,0 +1,13 @@
+# SAMPLE: shows the layout until the launch books are picked.
+titulo = "Cincuenta historias famosas"
+autor = "James Baldwin"
+titulo_original = "Fifty Famous Stories Retold"
+anio_original = 1896
+traductor = "Nathaniel C. Sheetz"
+edades = "Desde los 6 años"
+resumen = "Cincuenta relatos breves de reyes, héroes y sabios de la historia y la leyenda."
+edicion = "beta"   # beta | revisada
+orden = 2
+
+release = ""
+archivo = ""

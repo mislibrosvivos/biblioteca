@@ -1,0 +1,17 @@
+# SAMPLE: shows the layout until the launch books are picked.
+titulo = "Cuentos de la reina de las hadas"
+autor = "Jeanie Lang"
+autor_extra = "a partir de The Faerie Queene, de Edmund Spenser"
+titulo_original = "Stories from the Faerie Queen, Told to the Children"
+anio_original = 1906
+traductor = "Nathaniel C. Sheetz"
+ilustraciones = "Nuevas, basadas en las originales de Rose Le Quesne"
+edades = "Desde los 7 años; en voz alta para los más pequeños"
+resumen = "Ocho aventuras de caballeros y damas del País de las Hadas, contadas para niños."
+edicion = "beta"   # beta | revisada
+orden = 1
+
+# Download: leave both empty until the EPUB is uploaded to a release;
+# the page then shows "Próximamente".
+release = ""       # e.g. cuentos-de-la-reina-de-las-hadas-v1
+archivo = ""       # e.g. cuentos-de-la-reina-de-las-hadas.epub

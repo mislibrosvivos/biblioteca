@@ -1,0 +1,14 @@
+nombre = "Mis Libros Vivos"
+url = "https://mislibrosvivos.com"
+repo = "mislibrosvivos/biblioteca"
+correo = "hola@mislibrosvivos.com"
+
+# Fill these in as the accounts are opened. While one is empty, the build
+# prints a warning and the page marks the spot with a dashed outline.
+[enlaces]
+kit_form_id = ""      # Kit: the number in the form's embed URL
+kofi = ""             # e.g. https://ko-fi.com/mislibrosvivos
+tally = ""            # e.g. https://tally.so/r/abc123 (hidden fields: libro, edicion)
+goatcounter = ""      # e.g. https://mislibrosvivos.goatcounter.com/count (optional)
+licencia = ""         # e.g. https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es
+licencia_nombre = ""  # e.g. CC BY-NC-SA 4.0
