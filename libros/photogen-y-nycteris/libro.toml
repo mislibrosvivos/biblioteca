@@ -1,0 +1,15 @@
+titulo = "Photogen y Nycteris"
+autor = "George MacDonald"
+titulo_original = "The History of Photogen and Nycteris"
+anio_original = 1879
+traductor = "Nathaniel C. Sheetz"
+ilustraciones = "Nuevas, a color, basadas en los grabados de 1879"
+edades = "De 10 a 17 años"
+resumen = "Un niño criado sin conocer la noche y una niña criada sin conocer el día: un cuento de hadas de George MacDonald."
+edicion = "revisada"   # beta | revisada
+orden = 2
+
+# Download: leave both empty until the EPUB is uploaded to a release;
+# the page then shows "Próximamente".
+release = ""       # e.g. photogen-y-nycteris-v1
+archivo = ""       # e.g. photogen-y-nycteris.epub

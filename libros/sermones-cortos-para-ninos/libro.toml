@@ -1,0 +1,14 @@
+titulo = "Sermones cortos para niños"
+autor = "William S. Plumer"
+titulo_original = "Short Sermons to Little Children"
+anio_original = 1848
+traductor = "Nathaniel C. Sheetz"
+edades = "De 5 a 12 años, en voz alta"
+resumen = "Quince sermones breves para niños, cada uno sobre un versículo, con escenas de la vida diaria e himnos."
+edicion = "revisada"   # beta | revisada
+orden = 4
+
+# Download: leave both empty until the EPUB is uploaded to a release;
+# the page then shows "Próximamente".
+release = ""       # e.g. sermones-cortos-para-ninos-v1
+archivo = ""       # e.g. sermones-cortos-para-ninos.epub

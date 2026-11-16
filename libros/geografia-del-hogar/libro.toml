@@ -1,0 +1,15 @@
+titulo = "Geografía del hogar"
+autor = "C. C. Long"
+titulo_original = "Home Geography for Primary Grades"
+anio_original = 1894
+traductor = "Nathaniel C. Sheetz"
+ilustraciones = "Las originales, con mapas y rótulos en español"
+edades = "De 6 a 12 años, con un adulto"
+resumen = "45 lecciones breves para que el niño aprenda geografía observando el lugar donde vive."
+edicion = "revisada"   # beta | revisada
+orden = 3
+
+# Download: leave both empty until the EPUB is uploaded to a release;
+# the page then shows "Próximamente".
+release = ""       # e.g. geografia-del-hogar-v1
+archivo = ""       # e.g. geografia-del-hogar.epub

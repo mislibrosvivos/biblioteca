@@ -219,6 +219,7 @@ a.marca:hover { color: var(--tinta); }
   width: 100%;
   aspect-ratio: 2 / 3;
   object-fit: cover;
+  object-position: top;  /* covers taller than 2:3 lose only their bottom edge */
   border-radius: 0.25rem;
   box-shadow: var(--sombra);
   background: var(--papel-2);
@@ -301,8 +302,7 @@ main:has(> .banda:last-child) + .pie { margin-top: 0; border-top: 0; }
 .libro-portada {
   width: 100%;
   max-width: 20rem;
-  aspect-ratio: 2 / 3;
-  object-fit: cover;
+  height: auto;  /* the whole cover, at its own proportions */
   border-radius: 0.3rem;
   box-shadow: var(--sombra);
   background: var(--papel-2);
@@ -344,3 +344,26 @@ main:has(> .banda:last-child) + .pie { margin-top: 0; border-top: 0; }
 .prosa { max-width: 42rem; padding-top: 2.5rem; }
 .prosa h2 { margin-top: 2rem; }
 .prosa li { margin-bottom: 0.4rem; }
+
+/* ---- cajas plegables ---- */
+.plegable-cuerpo > :last-child { margin-bottom: 0; }
+.plegable.cerrado .plegable-cuerpo {
+  max-height: var(--alto);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 50%, transparent);
+  mask-image: linear-gradient(to bottom, #000 50%, transparent);
+}
+.ver-mas {
+  margin-top: 0.75rem;
+  padding: 0.25rem 0;
+  background: none;
+  border: 0;
+  color: var(--verde);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.ver-mas::after { content: " ▾"; }
+.ver-mas[aria-expanded="true"]::after { content: " ▴"; }

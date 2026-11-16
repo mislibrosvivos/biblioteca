@@ -5,7 +5,8 @@
     python build.py --serve  build, then preview at http://localhost:8000
 
 Each book is a folder under libros/ holding libro.toml (metadata),
-descripcion.md, padres.md and portada.jpg. Site-wide links live in
+descripcion.md, padres.md and portada.jpg, plus an optional adaptaciones.md
+(«Sobre esta edición»). Site-wide links live in
 sitio.toml. A book whose libro.toml says `publicado = false` is skipped.
 """
 from __future__ import annotations
@@ -23,6 +24,25 @@ DIST = RAIZ / "dist"
 PENDIENTE = "#pendiente"
 
 avisos: list[str] = []
+
+# Folds a long box to four lines behind "Ver más". Without JS the box stays open.
+PLEGABLE_JS = """<script>
+document.querySelectorAll('.plegable').forEach(function (s) {
+  var c = s.querySelector('.plegable-cuerpo'), b = s.querySelector('.ver-mas');
+  var lh = parseFloat(getComputedStyle(c).lineHeight) || 26, max = lh * 4;
+  if (c.scrollHeight <= max + lh) return;
+  c.style.setProperty('--alto', max + 'px');
+  s.classList.add('cerrado');
+  b.hidden = false;
+  b.setAttribute('aria-expanded', 'false');
+  b.textContent = 'Ver más';
+  b.addEventListener('click', function () {
+    var abierto = !s.classList.toggle('cerrado');
+    b.setAttribute('aria-expanded', String(abierto));
+    b.textContent = abierto ? 'Ver menos' : 'Ver más';
+  });
+});
+</script>"""
 
 
 def e(texto) -> str:
@@ -62,6 +82,7 @@ def cargar_libros() -> list[dict]:
         libro["carpeta"] = carpeta
         libro["descripcion_html"] = leer_md(carpeta / "descripcion.md")
         libro["padres_html"] = leer_md(carpeta / "padres.md")
+        libro["adaptaciones_html"] = leer_md(carpeta / "adaptaciones.md")
         libro["disponible"] = bool(libro.get("release") and libro.get("archivo"))
         if not (carpeta / "portada.jpg").exists():
             avisos.append(f"{carpeta.name}: falta portada.jpg")
@@ -267,15 +288,19 @@ def pagina_inicio(sitio: dict, libros: list[dict]) -> str:
   <h2 id="como-t">Cómo son estas ediciones</h2>
   <dl class="como-lista">
     <div><dt>Completas</dt>
-      <dd>El texto íntegro del autor, sin abreviar ni adaptar.</dd></div>
+      <dd>El texto íntegro del autor, sin abreviar. Si adapto algo, o añado una
+      nota para explicar una costumbre, una palabra antigua o una referencia,
+      siempre lo señalo.</dd></div>
     <div><dt>Traducidas con ayuda de inteligencia artificial</dt>
-      <dd>Cada libro se traduce con ayuda de la IA y luego se revisa y se corrige
-      a mano. <a href="acerca/">Así se hace</a>.</dd></div>
+      <dd>Cada libro se traduce con ayuda de la IA y pasa por varias revisiones
+      de coherencia y de claridad antes de publicarse. Yo apruebo cada
+      corrección. <a href="acerca/#como">Así se hace</a>.</dd></div>
     <div><dt>Con notas para los padres</dt>
       <dd>Cada libro dice qué conviene saber antes de leerlo con los niños.</dd></div>
     <div><dt>Mejoradas por los lectores</dt>
-      <dd>Las ediciones beta todavía no se han leído completas. Si encuentra un
-      error, avíseme y publico una edición corregida.</dd></div>
+      <dd>Las ediciones beta ya pasaron esas revisiones, pero todavía nadie las
+      ha leído completas de principio a fin. Si encuentra un error, avíseme y
+      publico una edición corregida.</dd></div>
   </dl>
 </section>
 {banda_suscribir(sitio, 1)}"""
@@ -287,6 +312,16 @@ def pagina_inicio(sitio: dict, libros: list[dict]) -> str:
         raiz="./",
         ruta="",
     )
+
+
+def plegable(id_: str, titulo: str, contenido: str) -> str:
+    """A boxed section that PLEGABLE_JS folds to four lines when it runs long."""
+    return f"""
+    <section class="padres plegable" aria-labelledby="{id_}-t">
+      <h2 id="{id_}-t">{titulo}</h2>
+      <div class="plegable-cuerpo" id="{id_}-c">{contenido}</div>
+      <button type="button" class="ver-mas" aria-controls="{id_}-c" aria-expanded="true" hidden>Ver menos</button>
+    </section>"""
 
 
 def pagina_libro(sitio: dict, libro: dict) -> str:
@@ -316,6 +351,12 @@ def pagina_libro(sitio: dict, libro: dict) -> str:
     padres = libro["padres_html"] or (
         '<p class="pendiente">Pendiente: se redactará a partir de la revisión familiar del libro.</p>'
     )
+    adaptaciones = (
+        plegable("adapt", "Sobre esta edición", libro["adaptaciones_html"])
+        if libro["adaptaciones_html"]
+        else ""
+    )
+    bloque_padres = plegable("padres", "Lo que los padres deben saber", padres)
     corr, corr_cls = enlace(url_correccion(sitio, libro))
     if libro.get("edicion") == "revisada":
         aviso = """
@@ -355,13 +396,12 @@ def pagina_libro(sitio: dict, libro: dict) -> str:
   </div>
   <div class="libro-cuerpo">
     <section class="descripcion">{libro['descripcion_html']}</section>
-    <section class="padres" aria-labelledby="padres-t">
-      <h2 id="padres-t">Lo que los padres deben saber</h2>
-      {padres}
-    </section>
+    {adaptaciones}
+    {bloque_padres}
     {aviso}
   </div>
 </article>
+{PLEGABLE_JS}
 {banda_suscribir(sitio, 1)}"""
     return pagina(
         sitio,

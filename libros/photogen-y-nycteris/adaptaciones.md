@@ -1,0 +1,3 @@
+- Esta edición traduce, sin abreviar, el cuento de George MacDonald, publicado por primera vez en 1879, en el texto de su colección _Stephen Archer and Other Tales_. Las cinco ilustraciones son nuevas, a color, basadas en los grabados que acompañaron esa primera publicación en la revista _Harper's Young People_, y sus pies están traducidos. La portada es nueva.
+- Se quita sin marcarla una comparación racial innecesaria (cap. 4).
+- Al final del libro hay **una nota del traductor**. Aclara un detalle de la trama del capítulo 19.
