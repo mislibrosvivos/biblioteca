@@ -9,7 +9,5 @@ resumen = "45 lecciones breves para que el niño aprenda geografía observando e
 edicion = "revisada"   # beta | revisada
 orden = 3
 
-# Download: leave both empty until the EPUB is uploaded to a release;
-# the page then shows "Próximamente".
-release = ""       # e.g. geografia-del-hogar-v1
-archivo = ""       # e.g. geografia-del-hogar.epub
+release = "geografia-del-hogar-v1"
+archivo = "geografia-del-hogar.epub"

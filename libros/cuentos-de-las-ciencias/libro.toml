@@ -10,7 +10,5 @@ resumen = "El tío Paul les cuenta a sus sobrinos historias verdaderas de abejas
 edicion = "revisada"   # beta | revisada
 orden = 1
 
-# Download: leave both empty until the EPUB is uploaded to a release;
-# the page then shows "Próximamente".
-release = ""       # e.g. cuentos-de-las-ciencias-v1
-archivo = ""       # e.g. cuentos-de-las-ciencias.epub
+release = "cuentos-de-las-ciencias-v1"
+archivo = "cuentos-de-las-ciencias.epub"

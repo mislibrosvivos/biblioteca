@@ -9,7 +9,5 @@ resumen = "Un niño criado sin conocer la noche y una niña criada sin conocer e
 edicion = "revisada"   # beta | revisada
 orden = 2
 
-# Download: leave both empty until the EPUB is uploaded to a release;
-# the page then shows "Próximamente".
-release = ""       # e.g. photogen-y-nycteris-v1
-archivo = ""       # e.g. photogen-y-nycteris.epub
+release = "photogen-y-nycteris-v1"
+archivo = "photogen-y-nycteris.epub"

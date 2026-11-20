@@ -8,7 +8,5 @@ resumen = "Quince sermones breves para niños, cada uno sobre un versículo, con
 edicion = "revisada"   # beta | revisada
 orden = 4
 
-# Download: leave both empty until the EPUB is uploaded to a release;
-# the page then shows "Próximamente".
-release = ""       # e.g. sermones-cortos-para-ninos-v1
-archivo = ""       # e.g. sermones-cortos-para-ninos.epub
+release = "sermones-cortos-para-ninos-v1"
+archivo = "sermones-cortos-para-ninos.epub"
