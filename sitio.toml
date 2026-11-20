@@ -6,7 +6,7 @@ correo = "hola@mislibrosvivos.com"
 # Fill these in as the accounts are opened. While one is empty, the build
 # prints a warning and the page marks the spot with a dashed outline.
 [enlaces]
-kit_form_id = "1ad78533ed"      # Kit: the number in the form's embed URL
+kit_form_id = "10218306"      # Kit: the number in the form's embed URL
 kofi = "https://ko-fi.com/mislibrosvivos"             # e.g. https://ko-fi.com/mislibrosvivos
 tally = "https://tally.so/r/PR9drB"  # e.g. https://tally.so/r/abc123 (hidden fields: libro, edicion)
 goatcounter = ""      # e.g. https://mislibrosvivos.goatcounter.com/count (optional)
